@@ -1,0 +1,12 @@
+<div class="perfil-container">
+    <img src="http://localhost:8080/imagenes/{{ persona.img }}" alt="Foto de perfil">
+    <div class="informacion-personal">
+      <h2>{{ persona.nombre }} {{ persona.apellido }}</h2>
+      <p>DNI: {{ persona.dni }}</p>
+      <p>Fecha de Nacimiento: {{ persona.fechaNacimiento | date:'dd/MM/yyyy' }}</p>
+      <p>Correo Electrónico: {{ persona.email }}</p>
+      <p>Teléfono: {{ persona.telefono }}</p>
+      <p>Dirección: {{ persona.direccion }}</p>
+    </div>
+  </div>
+  

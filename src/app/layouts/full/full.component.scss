@@ -1,0 +1,17 @@
+.max-width {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.centered-logo{
+  display: block; /* Para centrar la imagen */
+  margin: 0 auto; /* Centrar horizontalmente */
+  max-width: 70%; /* Ajustar el tamaño al contenedor */
+  height: auto; /* Mantener la proporción original de la imagen */
+}
+
+.navbar{
+  height: 60px;
+}
+
+

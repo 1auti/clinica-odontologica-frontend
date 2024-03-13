@@ -1,0 +1,79 @@
+<div class="historial-container">
+  <div class="historial-header">
+    <h2>Historial Médico</h2>
+  </div>
+
+
+  
+    <div class="buscar-controls">
+      <div class="search-group">
+        <label for="odontologo">Seleccionar Odontólogo:</label>
+        <select id="odontologo" [(ngModel)]="odontologoId">
+          <option *ngFor="let odontologo of odontologos" [value]="odontologo.id">
+            {{ odontologo.nombre }} {{ odontologo.apellido }}
+          </option>
+        </select>
+        <button (click)="buscarPorOdontologo()">Buscar</button> 
+      </div>
+  
+    <div class="search-group">
+      <label for="diagnostico">Buscar por Diagnóstico:</label>
+      <input type="text" id="diagnostico" [(ngModel)]="diagnostico">
+      <button (click)="buscarPorDiagnostico()">Buscar</button>
+    </div>
+  
+    <div class="search-group">
+      <label for="fechaInicio">Buscar por Fechas:</label>
+      <input type="date" id="fechaInicio" [(ngModel)]="fechaInicio">
+      <label for="fechaFin">a</label>
+      <input type="date" id="fechaFin" [(ngModel)]="fechaFin">
+      <button (click)="buscarPorFechas()">Buscar</button>
+    </div>
+  </div>
+
+  
+  
+  
+  
+
+  <!-- Verifica si hay historial médico -->
+  <!-- Verifica si hay historial médico -->
+<div *ngIf="historialMedico ; else noHistorial">
+  <!-- Lista de historiales médicos del paciente -->
+  <div>
+    <div class="historial-item">
+      <!-- Puedes mostrar los detalles del historial según tu modelo de datos -->
+      <strong>Paciente:</strong> {{ historialMedico.paciente.nombre}} {{ historialMedico.paciente.apellido }}
+
+      <!-- Lista de diagnósticos para el historial médico actual -->
+      <ul class="diagnostico-list-container">
+        <li *ngFor="let diagnosticoList of diagnosticos">
+          <!-- Verifica si diagnosticoList no es null o undefined antes de acceder a sus propiedades -->
+            <p><strong>Odontologo:</strong> {{ diagnosticoList.odontologo.nombre }} {{ diagnosticoList.odontologo.apellido}}</p>
+            <p><strong>Especialidad:</strong> {{ diagnosticoList.odontologo.especialidad}}</p>
+            <p><strong>Diagnóstico:</strong> {{ diagnosticoList.diagnostico }}</p>
+            <p><strong>Fecha de tratamiento:</strong> {{ diagnosticoList.fechaTratamiento }}</p>
+            
+            
+            <!-- Botones de eliminar y editar -->
+            <button class="btn btn-danger btn-separar"  (click)="eliminarDiagnostico(diagnosticoList.id)">Eliminar</button>
+            <button class="btn btn-info" style="margin-left: 5px;" (click)="editarDiagnostico(diagnosticoList.id)">Editar</button>
+         
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Mensaje si no hay historial médico -->
+  <ng-template #noHistorial>
+    <h3><strong>No hay historial médico registrado para este paciente.</strong></h3>
+  </ng-template>
+
+  <!-- Otros elementos del HTML según tu necesidad -->
+
+  <button class="btn btn-primary" (click)="agregarDiagnostico()">Agregar Diagnóstico</button>
+  <button class="btn btn-secondary" style="margin-left: 5px;" (click)="reiniciarFiltros()">Reiniciar Filtros</button>
+
+</div>

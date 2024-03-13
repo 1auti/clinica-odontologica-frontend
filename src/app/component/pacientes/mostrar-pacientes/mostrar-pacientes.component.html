@@ -1,0 +1,26 @@
+<!-- paciente-lista.component.html -->
+<div class="container mt-4">
+    <h2>Listado de Pacientes</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paciente of pacientes">
+          <td>{{ paciente.nombre }}</td>
+          <td>{{ paciente.apellido }}</td>
+            <td>
+              <button (click)="editarPaciente(paciente.id)" class="btn btn-warning">Editar</button>
+              <button (click)="borrarPaciente(paciente.id)" class="btn btn-danger btn-separado">Borrar</button>
+              <button (click)="mostrarHistorial(paciente.id)" class="btn btn-info btn-separado">Mostrar Historial</button>
+              <button (click)="mostrarTurnos(paciente.id)" class="btn btn-success btn-separado">Mostrar Turnos</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,14 @@
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    border-collapse: collapse;
+  }
+  
+  .scrollable-table {
+    max-height: 600px; /* Puedes ajustar la altura máxima según tus necesidades */
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;  // Grosor de la barra de desplazamiento para Firefox
+    scrollbar-color: #121080 #0000;  // Color de la barra de desplazamiento para Firefox
+  }

@@ -1,0 +1,27 @@
+<!-- odontologos-lista.component.html -->
+<div class="container mt-4">
+    <h2>Listado de Odontologos</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Especialidad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let odontologo of odontologos">
+          <td>{{ odontologo.nombre }}</td>
+          <td>{{ odontologo.apellido }}</td>
+          <td>{{ odontologo.especialidad }}</td>
+          <td>
+            <button (click)= "editarOdontologo(odontologo.id)" class="btn btn-warning">Editar</button>
+            <button (click)= "borrarOdontologo(odontologo.id)" class="btn btn-danger  btn-separado">Borrar</button>
+            <button (click)= "mostrarDiagnosticosOdontologo(odontologo.id)" class="btn btn-info  btn-separado">Mostrar diagnosticos</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

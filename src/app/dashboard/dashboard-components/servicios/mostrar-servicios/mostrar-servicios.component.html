@@ -1,0 +1,13 @@
+<!-- servicios.component.html -->
+
+<div class="servicios-container">
+    <h2 style="margin-left: 460px;">Servicios que Ofrecemos</h2>
+    <div class="servicios-list">
+      <div *ngFor="let servicio of servicios" class="servicio-item">
+        <img [src]="servicio.imagenUrl" alt="{{ servicio.nombre }}" class="servicio-imagen" />
+        <h3 class="servicio-titulo">{{ servicio.nombre }}</h3>
+        <p class="servicio-descripcion">{{ servicio.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,39 @@
+<!-- En tu componente HTML -->
+<div class="contenedor-preguntas">
+  <!-- Sección para crear una nueva pregunta -->
+  <div class="crearPregunta">
+    <button (click)="mostrarFormularioNuevaPregunta()">Crear Nueva Pregunta</button>
+    <form *ngIf="mostrarFormulario" (submit)="agregarPregunta()" #crearPreguntaForm="ngForm">
+      <label for="pregunta">Nueva Pregunta:</label>
+      <textarea id="pregunta" type="text" [(ngModel)]="pregunta.pregunta" name="pregunta" required></textarea>
+      <button type="submit">Agregar Pregunta</button>
+    </form>
+  </div>
+
+  <!-- Lista de Preguntas Frecuentes existentes -->
+  <div class="preguntas" *ngFor="let pregunta of preguntas">
+    <div class="pregunta-respuesta">
+      <!-- Pregunta -->
+      <div class="pregunta">
+        <h3>{{ pregunta.pregunta }}</h3>
+      </div>
+
+      <!-- Respuesta -->
+      <div class="respuesta">
+        <h4>{{ pregunta.respuesta }}</h4>
+        <button  *ngIf= "mostrar == true"  click= "borrarPregunta(pregunta.id)" class="btn btn-danger">Eliminar pregunta</button>
+      </div>
+
+      <!-- Responder Pregunta -->
+      <div class="responderPregunta" *ngIf="!pregunta.respondido">
+        <p (click)="mostrarFormularioRespuesta(pregunta)">Responder Pregunta</p>
+        <ng-container *ngIf="mostrarFormularioRespuestaId === pregunta.id">
+          <form (submit)="enviarRespuesta(pregunta.id, pregunta.respuesta)" #respoderPreguntaForm="ngForm">
+            <textarea id="respuesta" [(ngModel)]="pregunta.respuesta" name="respuesta" required></textarea>
+            <button type="submit" class = "btn btn-success" class = "btn btn-success">Enviar respuesta</button>
+          </form>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

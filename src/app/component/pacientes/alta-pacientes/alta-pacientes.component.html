@@ -1,0 +1,59 @@
+<div class="container mt-4">
+    <h2>Alta de Paciente</h2>
+    <form (ngSubmit)= "crearPaciente()" #altaPacienteForm="ngForm">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]= "nuevoPaciente.nombre"  required>
+      </div>
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]= "nuevoPaciente.apellido" required>
+      </div>
+      <div class="form-group">
+        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" [(ngModel)]= "nuevoPaciente.fechaNacimiento" required>
+      </div>
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" class="form-control" id="telefono" name="telefono" [(ngModel)]= "nuevoPaciente.telefono" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" [(ngModel)]= "nuevoPaciente.email" required>
+      </div>
+      <div class="form-group">
+        <label for="dni">DNI</label>
+        <input type="number" class="form-control" id="dni" name="dni" [(ngModel)]= "nuevoPaciente.dni" required>
+      </div>
+      <div class="form-group">
+        <label for="direccion">Dirección</label>
+        <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]= "nuevoPaciente.direccion" required>
+      </div>
+      <div class="form-group">
+        <label for="tipoSangre">Tipo de Sangre</label>
+        <select class="form-select" id="tipoSangre"  name = "tipoSangre" [(ngModel)]= "nuevoPaciente.tipo_sangre">
+          <option value="" selected></option>
+          <option *ngFor="let tipo of tipoSangreOptions" [value]= "tipo">{{ tipo }}</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="tiene_OS">¿Tiene Obra Social?</label>
+        <input type="checkbox" class="form-check-input" id="tiene_OS" name="tiene_OS" [(ngModel)]= "nuevoPaciente.tiene_OS">
+      </div>
+      <div class="form-group" *ngIf= "nuevoPaciente.tiene_OS">
+        <label for="obraSocial">Obra Social</label>
+        <input type="text" class="form-control" id="obraSocial" name="obraSocial" [(ngModel)]= "nuevoPaciente.obraSocial" required>
+      </div>
+
+      <div class="form-group">
+        <label for="img">Seleccionar Imagen:</label>
+        <input type="file" class="form-control" id="img" name="img" (change)="onFileSelected($event)" accept="image/*">
+      </div>
+
+
+      
+      <button type="submit" class="btn btn-primary">Guardar Paciente</button>
+    </form>
+  </div>
+  

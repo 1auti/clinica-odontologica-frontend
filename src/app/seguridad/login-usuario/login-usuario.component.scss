@@ -1,0 +1,18 @@
+/* Ajustes CSS */
+.img {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100vh; /* Ajusta la altura según tus necesidades */
+    overflow: hidden;
+}
+
+#carouselExample {
+    width: 100%; /* Hace que el carrusel ocupe el 100% del ancho de su contenedor */
+}
+
+#carouselExample img {
+    height: 100vh; /* Hace que la imagen ocupe el 100% de la altura del carrusel */
+    object-fit: cover; /* Mantiene la proporción y corta la imagen si es necesario */
+}
+

@@ -1,0 +1,21 @@
+/* styles.css o estilos específicos de tu componente */
+.servicios-container {
+  background-color: #9e2110;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  max-width: 600px; /* Establece el ancho máximo del contenedor principal */
+  margin-right: 5px; /* Ajusta el margen derecho según sea necesario */
+}
+
+.servicios-container .content {
+  flex: 1; /* El contenido ocupa el espacio restante */
+  margin-right: 20px; /* Ajusta el margen derecho según sea necesario */
+}
+
+.servicios-container .img img {
+  max-width: 80%; /* La imagen no superará el ancho del contenedor padre */
+  height: auto; /* Ajusta automáticamente la altura para mantener la proporción original */
+  border-radius: 10px;
+}

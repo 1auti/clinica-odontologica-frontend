@@ -1,0 +1,52 @@
+.message {
+    margin-top: -50px; /* Inicia arriba de la pantalla */
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    opacity: 0;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: slideIn 0.5s ease-out forwards, fadeOut 0.5s 4.5s forwards; /* Agrega animaciones */
+    z-index: 1000; /* Ajusta según sea necesario, debe ser mayor que el z-index de otros elementos */
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-50%) translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .hide {
+    display: none; /* Agrega esta regla para ocultar completamente el mensaje */
+  }
+  
+  .success {
+    color: green;
+    background-color: lightgreen;
+  }
+  
+  .info {
+    color: blue;
+    background-color: lightblue;
+  }
+  
+  .error {
+    color: red;
+    background-color: lightcoral;
+  }
+  

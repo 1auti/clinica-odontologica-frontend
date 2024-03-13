@@ -1,0 +1,29 @@
+
+<div class="container">
+    <h2>{{especialidad.nombre}}</h2>
+  
+    
+    <p>
+      {{especialidad.descripcion}}
+    </p>
+
+    <h2>Procedimientos Comunes</h2>
+    <ul>
+      <li *ngFor="let procedimiento of especialidad.procedimientos.split(', ')">{{ procedimiento }}</li>
+    </ul>
+
+    <h2>Importancia de {{ especialidad.nombre }}</h2>
+    <p>
+        {{ especialidad.importancia }}
+    </p>
+
+    <h2>Video Explicativo</h2>
+    <iframe width="560" height="315" [src]="getSafeUrl(especialidad.videoUrl)" frameborder="0" allowfullscreen></iframe>
+    
+    <h2>Imagen</h2>
+    <div class="media-container">
+        <img src={{especialidad.imagen}} />
+      </div>
+
+  </div>
+  

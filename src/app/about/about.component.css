@@ -1,0 +1,15 @@
+/* about.component.css */
+.container {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  h2 {
+    color: #007bff;
+  }
+  
+  p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+  

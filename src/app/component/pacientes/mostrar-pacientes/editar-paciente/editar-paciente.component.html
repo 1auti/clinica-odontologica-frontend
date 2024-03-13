@@ -1,0 +1,55 @@
+<!-- editar-paciente.component.html -->
+
+<div class="container mt-4">
+  <h2>Editar Paciente</h2>
+  <form [formGroup]="pacienteForm" (ngSubmit)="guardarCambios()">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
+    </div>
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input type="text" class="form-control" id="apellido" formControlName="apellido" required>
+    </div>
+    <div class="form-group">
+      <label for="direccion">Direccion</label>
+      <input type="text" class="form-control" id="direccion" formControlName="direccion" required>
+    </div>
+    <div class="form-group">
+      <label for="Telefono">Telefono</label>
+      <input type="text" class="form-control" id="telefono" formControlName="telefono" required>
+    </div>
+    <div class="form-group">
+      <label for="dni">DNI</label>
+      <input type="number" class="form-control" id="dni" formControlName="dni" required>
+    </div>
+    <div class="form-group">
+      <label for="fechaNacimiento">Fecha Nacimiento</label>
+      <input type= "datetime" class="form-control" id="fechaNacimiento"formControlName="fechaNacimiento" required>
+    </div>
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input type="text" class="form-control" id="apellido" formControlName="apellido" required>
+    </div>
+    <div class="form-group">
+      <label for="tipo_sangre">Tipo de Sangre</label>
+      <input type="text" class="form-control" id="tipo_sangre" formControlName="tipo_sangre">
+    </div>
+    <div class="form-group">
+      <label for="tiene_OS">Tiene Obra Social</label>
+      <input type="checkbox" class="form-check-input" id="tiene_OS" formControlName="tiene_OS">
+    </div>
+    <div class="form-group" *ngIf="pacienteForm?.get('tiene_OS')?.value">
+      <label for="obraSocial">Obra Social</label>
+      <input type="text" class="form-control" id="obraSocial" formControlName="obraSocial">
+    </div>
+
+    <div class="form-group" *ngIf="pacienteForm?.get('tiene_responsable')?.value">
+      <label for="responsable">Responsable</label>
+      <input type="text" class="form-control" id="responsable" formControlName="responsable">
+    </div>
+    
+    <!-- Otros campos según tu modelo -->
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+ </form> 
+</div>

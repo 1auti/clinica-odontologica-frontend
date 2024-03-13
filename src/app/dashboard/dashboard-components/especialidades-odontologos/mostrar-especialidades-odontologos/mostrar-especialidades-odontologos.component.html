@@ -1,0 +1,10 @@
+<!-- especialidades-odontologo.component.html -->
+<div class="especialidades-container">
+  <div class="especialidad-card" *ngFor="let especialidad of especialidades">
+    <div class="texto-especialidad">
+      <h4>{{especialidad.nombre}}</h4>
+      <p>{{especialidad.descripcionCorta}}</p>
+      <button  class="button" (click)="verMas(especialidad.id)">Ver mas...</button>
+    </div>
+  </div>
+</div>

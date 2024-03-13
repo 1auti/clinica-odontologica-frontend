@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <h2>Detalles del Paciente</h2>
+  <div *ngIf="paciente" class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Detalles del paciente en la mitad izquierda del card -->
+          <p><strong>ID:</strong> {{ paciente.id }}</p>
+          <p><strong>Nombre:</strong> {{ paciente.nombre }} {{ paciente.apellido }}</p>
+          <p><strong>Fecha de Nacimiento:</strong> {{ paciente.fechaNacimiento | date }}</p>
+          <p><strong>DNI:</strong> {{ paciente.dni }}</p>
+          <p><strong>Email:</strong> {{ paciente.email }}</p>
+          <p><strong>Teléfono:</strong> {{ paciente.telefono }}</p>
+          <p><strong>Dirección:</strong> {{ paciente.direccion }}</p>
+          <p><strong>Tiene Obra Social:</strong> {{ paciente.tiene_OS ? 'Sí' : 'No' }}</p>
+          <p *ngIf="paciente.tiene_OS"><strong>Obra Social:</strong> {{ paciente.obraSocial }}</p>
+          <p><strong>Tipo de Sangre:</strong> {{ paciente.tipo_sangre }}</p>
+        </div>
+        <div class="col-md-6">
+          <!-- Imagen a la derecha -->
+          <img src="http://localhost:8080/imagenes/{{ paciente.img}}" alt="Foto de perfil" class="img-fluid img-thumbnail float-md-right" style="max-width: 350px;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!paciente" class="alert alert-warning">
+    No se encontraron detalles para este paciente.
+  </div>
+
+  <button class="btn btn-primary" style="margin-top: 20px;" (click)="volverAPacientes()">Volver a Pacientes</button>
+</div>

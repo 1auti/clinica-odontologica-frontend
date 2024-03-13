@@ -1,0 +1,71 @@
+/* turnos-paciente.component.scss */
+
+/* turnos-paciente.component.scss */
+
+.turnos-container-scroll {
+    max-height: 500px; /* Altura máxima de la barra de desplazamiento */
+    overflow-y: auto; /* Barra de desplazamiento vertical */
+    margin-top: 10px; /* Espaciado superior */
+    padding-right: 5px; /* Espaciado derecho para la barra de desplazamiento */
+
+    /* Para navegadores basados en WebKit (Chrome, Safari) */
+    &::-webkit-scrollbar {
+        width: 5px; /* Ajusta el grosor vertical de la barra */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #3498db; /* Color de la barra de desplazamiento */
+        border-radius: 4px; /* Borde redondeado de la barra */
+    }
+
+    /* Para navegadores no basados en WebKit (Firefox, Edge, etc.) */
+    scrollbar-width: thin; /* Ajusta el grosor de la barra */
+    scrollbar-color: #3498db transparent; /* Color de la barra de desplazamiento */
+}
+
+  .turnos-container {
+    background-color: #062c46; /* Color de fondo del contenedor principal */
+    padding: 10px; /* Espaciado interno */
+    margin-top: 10px; /* Espaciado superior */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  }
+  
+  .turno-item {
+    border: 1px solid #ddd; /* Borde del elemento de turno */
+    margin-bottom: 10px; /* Espaciado inferior entre turnos */
+    padding: 10px; /* Espaciado interno del elemento de turno */
+    background-color: #fff; /* Color de fondo del elemento de turno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
+  }
+  
+  .turno-item:hover {
+    background-color: #f5f5f5; /* Cambio de color al pasar el mouse sobre el elemento de turno */
+  }
+  
+  .turno-info {
+    color: #333; /* Color del texto */
+  }
+  
+  /* Estilos para el botón */
+  button {
+    background-color: #121080; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
+  }
+  
+  button:hover {
+    background-color:#121080; /* Cambio de color al pasar el mouse sobre el botón */
+  }
+  
+
+  .turno-titulo{
+    text-align: center;
+    margin-top: 10px;
+    text-transform:capitalize;
+  }

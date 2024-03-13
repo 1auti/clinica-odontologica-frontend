@@ -1,0 +1,82 @@
+<div class="diagnosticos-container">
+    <div class="diagnosticos-header">
+      <h2>Diagnosticos</h2>
+    </div>
+  
+    <div class="buscar-controls">
+      <div class="search-group">
+        <label for="diagnostico">Buscar por Diagnóstico:</label>
+        <input type="text" id="diagnostico" [(ngModel)]="diagnostico">
+        <button (click)="buscarPorDiagnostico()">Buscar</button>
+      </div>
+    
+      <div class="search-group">
+        <label for="fechaInicio">Buscar por Fechas:</label>
+        <input type="date" id="fechaInicio" [(ngModel)]="fechaInicio">
+        <label for="fechaFin">a</label>
+        <input type="date" id="fechaFin" [(ngModel)]="fechaFin">
+        <button (click)="buscarPorFechas()">Buscar</button>
+      </div>
+    </div> 
+    </div>
+  
+    <!-- Verifica si hay diagnosticos -->
+    <!-- Verifica si hay diagnosticos -->
+  <div *ngIf="diagnosticos ; else noDiagnosticos">
+    <!-- Lista de diagnosticos del odontologo -->
+    <div>
+      <div class="diagnosticos-item">
+
+        <ul class = "diagnostico-list-container">
+          <li *ngFor=" let historialMedicoList of historialMedico">
+            <ul>
+              <li *ngFor="let diagnosticosList of historialMedicoList.diagnosticoList">
+
+                <strong>Odontologo:</strong> {{diagnosticosList.odontologo.nombre }} {{ diagnosticosList.odontologo.apellido }}
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+       
+  
+        <!-- Lista de diagnósticos para el diagnosticos odontologo actual -->
+        <ul class="diagnostico-list-container">
+          <li *ngFor="let historialMedicoList of historialMedico">
+            <ul>
+              <li *ngFor="let diagnosticosList of historialMedicoList.diagnosticoList">
+                <p><strong>ID:</strong> {{diagnosticosList.id}}</p>
+                <p><strong>Paciente:</strong> {{historialMedicoList.paciente.nombre}} {{historialMedicoList.paciente.apellido}}</p>
+                <p><strong>Diagnóstico:</strong> {{ diagnosticosList.diagnostico}}</p>
+                <p><strong>Fecha de tratamiento:</strong> {{ diagnosticosList.fechaTratamiento}}</p>
+
+                 <!-- Botones de eliminar y editar -->
+             <button class="btn btn-danger btn-separar"  (click)="eliminarDiagnostico(diagnosticosList.id)">Eliminar</button>
+             <button class="btn btn-info" style="margin-left: 5px;" (click)="editarDiagnostico(diagnosticosList.id)">Editar</button>
+           
+              </li>
+            </ul>
+            <!-- Verifica si diagnosticoList no es null o undefined antes de acceder a sus propiedades -->
+           
+             
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  
+    <!-- Mensaje si no hay diagnosticos médico -->
+    <ng-template #noDiagnosticos>
+      <h3><strong>No hay diagnosticos médico registrado para este paciente.</strong></h3>
+    </ng-template>
+
+    <button class="btn btn-secondary" style="margin-left: 5px;" (click)="reiniciarFiltros()">Reiniciar Filtros</button>
+
+  
+    <!-- Otros elementos del HTML según tu necesidad -->
+  
+ 
+   
+  
+  

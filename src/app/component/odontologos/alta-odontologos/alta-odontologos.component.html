@@ -1,0 +1,73 @@
+<div class="container mt-4">
+    <h2>Alta de Odontologos</h2>
+    <form (ngSubmit)= "guardarOdontologo()" #altaOdontologoForm="ngForm">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nuevoOdontologo.nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="nuevoOdontologo.apellido" required>
+      </div>
+      <div class="form-group">
+        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" [(ngModel)]="nuevoOdontologo.fechaNacimiento" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="nuevoOdontologo.email" required>
+      </div>
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" class="form-control" id="telefono" name="telefono" [(ngModel)]="nuevoOdontologo.telefono" required>
+      </div>
+      <div class="form-group">
+        <label for="dni">DNI</label>
+        <input type="number" class="form-control" id="dni" name="dni" [(ngModel)]="nuevoOdontologo.dni" required>
+      </div>
+      <div class="form-group">
+        <label for="direccion">Dirección</label>
+        <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]="nuevoOdontologo.direccion" required>
+      </div>
+      <div class="form-group">
+        <label for="tipoEspecialidad">Tipo de Especialidad</label>
+        <select class="form-control" id="tipoEspecialidad" name="tipoEspecialidad" [(ngModel)]="nuevoOdontologo.especialidad">
+          <option value="Odontología general">Odontología general</option>
+          <option value="Odontopediatría">Odontopediatría</option>
+          <option value="Endodoncia">Endodoncia</option>
+          <option value="Ortodoncia">Ortodoncia</option>
+          <option value="Prostodoncia">Prostodoncia</option>
+          <option value="Patólogo Oral">Patólogo Oral</option>
+          <option value="Periodoncista">Periodoncista</option>
+          <option value="Cirugía Dental">Cirugía Dental</option>
+        </select>
+      </div>
+     
+      <div class="form-group">
+        <label for="horarioInicio">Horario de Inicio</label>
+        <input type="time" class="form-control" id="horarioInicio" name="horarioInicio"[(ngModel)]="nuevoHorario.horario_inicio">
+      </div>
+      
+      <div class="form-group">
+        <label for="horarioFin">Horario de Fin</label>
+        <input type="time" class="form-control" id="horarioFin" name="horarioFin" [(ngModel)]="nuevoHorario.horario_fin">
+      </div>
+      
+      <div class="form-group">
+        <label for="diasSemana">Día de la Semana</label>
+        <select class="form-select" id="diasSemana" name="diasSemana" [(ngModel)]="nuevoHorario.dias">
+          <option value="" selected></option>
+          <option *ngFor="let dia of diasSemanaOptions" [value]="dia">{{ dia }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="img">Seleccionar Imagen:</label>
+        <input type="file" class="form-control" id="img" name="img"  (change)="onFileSelected($event)" accept="image/*">
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Guardar Odontologo</button>
+    </form>
+  </div>
+  
+

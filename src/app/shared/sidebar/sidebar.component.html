@@ -1,0 +1,30 @@
+<nav class="sidebar-nav">
+  <ul id="sidebarnav" class="p-3">
+    <li class="sidebar-item" *ngFor="let sidebarnavItem of sidebarnavItems">
+      <a
+        class="sidebar-link waves-effect waves-dark"
+        [routerLink]="[sidebarnavItem.path]"
+        [ngClass]="{ 
+         
+          active: showMenu === sidebarnavItem.title }"
+        (click)="addExpandClass(sidebarnavItem.title)"
+      >
+        <i [ngClass]="[sidebarnavItem.icon]"></i>
+        <span class="hide-menu">{{ sidebarnavItem.title }}</span>
+      </a>
+      <ul class="sidebar-submenu" *ngIf="showMenu === sidebarnavItem.title && sidebarnavItem.submenu">
+        <li *ngFor="let submenuItem of sidebarnavItem.submenu">
+          <a
+            class="sidebar-link waves-effect waves-dark"
+            [routerLink]="[submenuItem.path]"
+            [ngClass]="{ active: showSubMenu === submenuItem.title }"
+            (click)="showSubMenu = submenuItem.title"
+          >
+            <i [ngClass]="[submenuItem.icon]"></i>
+            <span class="hide-menu">{{ submenuItem.title }}</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

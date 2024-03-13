@@ -1,0 +1,117 @@
+.diagnosticos-container {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  .diagnosticos-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  .diagnosticos-header {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .btn-seperar {
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-left: 5px;
+  
+  }
+  
+  .buscar-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .search-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .search-group label,
+  .search-group input {
+    margin-right: 10px;
+  }
+  
+  .label-spacing {
+    margin-right: 10px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 8px 15px;
+    background-color: #121080;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  
+  /* Agrega una barra de desplazamiento vertical */
+  .diagnostico-list-container {
+    max-height: 200px; /* Ajusta la altura máxima según tus necesidades */
+    overflow-y: auto;
+  }
+  
+  /* Para navegadores basados en WebKit (Google Chrome, Safari) */
+  .diagnostico-list-container::-webkit-scrollbar {
+    width: 8px; /* Ajusta el grosor horizontal de la barra */
+  }
+  
+  .diagnostico-list-container::-webkit-scrollbar-thumb {
+    background-color: #121080; /* Color de la barra de desplazamiento */
+    border-radius: 4px; /* Borde redondeado de la barra */
+  }
+  
+  /* Para navegadores no basados en WebKit (Firefox, Edge, etc.) */
+  .diagnostico-list-container {
+    scrollbar-width: thin; /* Ajusta el grosor de la barra */
+  }
+  
+  .diagnostico-list-container::-webkit-scrollbar-track {
+    background-color: #f9f9f9; /* Color del fondo de la barra de desplazamiento */
+  }
+
+  /* Quitar puntos de la lista y el margen predeterminado */
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilo para los elementos li dentro de la lista sin puntos */
+li {
+  margin-bottom: 5px; /* Agrega un espacio entre elementos de la lista si es necesario */
+}
+
+  
+  
+  
+  

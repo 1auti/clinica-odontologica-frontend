@@ -1,0 +1,34 @@
+<div class="container mt-4">
+    <h2>Detalles del Odontologo</h2>
+    <div *ngIf="odontologo" class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>ID:</strong> {{ odontologo.id }}</p>
+            <p><strong>Nombre:</strong> {{ odontologo.nombre }} {{ odontologo.apellido }}</p>
+            <p><strong>Fecha de Nacimiento:</strong> {{ odontologo.fechaNacimiento | date }}</p>
+            <p><strong>DNI:</strong> {{ odontologo.dni }}</p>
+            <p><strong>Teléfono:</strong> {{ odontologo.telefono }}</p>
+            <p><strong>Email:</strong> {{ odontologo.email }}</p>
+            <p><strong>Dirección:</strong> {{ odontologo.direccion }}</p>
+            <p><strong>Tipo de Especialidad:</strong> {{ odontologo.especialidad }}</p>
+            <p><strong>Dia que trabaja:</strong> {{ odontologo.horario.dias }}</p>
+            <p><strong>Horario de  Inicio :</strong> {{ odontologo.horario.horario_inicio}}</p>
+            <p><strong>Horario de Fin :</strong> {{ odontologo.horario.horario_fin }}</p>
+          </div>
+          <div class="col-md-6">
+            <!-- Imagen a la derecha -->
+            <img src="http://localhost:8080/imagenes/{{odontologo.img}}" alt="Foto de perfil" class="img-fluid img-thumbnail float-md-right" style="max-width: 350px;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!odontologo" class="alert alert-warning">
+      No se encontraron detalles para este odontologo.
+    </div>
+  
+    <button class="btn btn-primary" (click)="volverAOdontologo()">Volver a Odontologos</button>
+  
+    
+  </div>
+  

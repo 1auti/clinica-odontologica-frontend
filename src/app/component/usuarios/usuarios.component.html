@@ -1,0 +1,68 @@
+<!-- usuarios.component.html -->
+
+<div class="usuarios-container">
+  <h2 style="margin-top: 10px;">Usuarios</h2>
+
+  <!-- Buscar por Email -->
+  <div class="search-group">
+    <label for="emailBuscar">Buscar por Email:</label>
+    <div class="input-group">
+      <input type="email" id="emailBuscar" [(ngModel)]="email" placeholder="Ingrese el email...">
+      <button class="search-button" (click)="traerUser(email)">Buscar</button>
+      <button style="margin-left: 5px;" class="reset-button" (click)="reiniciar()">Reiniciar</button>
+    </div>
+  </div>
+
+  <!-- Lista de Usuarios -->
+ <!-- Lista de Usuarios -->
+<table class="table" *ngIf="bandera == false">
+  <app-mensaje #mensajeElement [messageText]="errorMessage" [messageType]="messageType"></app-mensaje>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Rol</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.nombre }}</td>
+      <td>{{ user.apellido }}</td>
+      <td>{{ user.rol }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <button class="btn btn-danger" (click)="borrarUsuario(user.id)">Borrar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+  <div *ngIf="user.id">
+    <app-mensaje #mensajeElement [messageText]="errorMessage" [messageType]="messageType"></app-mensaje>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Rol</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.nombre }}</td>
+          <td>{{ user.apellido }}</td>
+          <td>{{ user.rol }}</td>
+          <td>{{ user.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

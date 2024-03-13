@@ -1,0 +1,93 @@
+
+<div class="formulario-container">
+    <h1>Formulario de Paciente</h1>
+
+    <div class="form-content">
+
+        <form id="etapa1" *ngIf="!esPaciente" >
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="turno.paciente.nombre" required>
+        
+         <label for="apellido">Apellido:</label>
+          <input type="text" id="apellido" name="apellido"[(ngModel)]="turno.paciente.apellido" required>
+        
+          <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+          <input type="date" id="fechaNacimiento" name="fechaNacimiento" [(ngModel)]="turno.paciente.fechaNacimiento"required>
+        
+          <label for="apellido">Telefono:</label>
+          <input type="tel" id="telefono" name="telefono"[(ngModel)]="turno.paciente.telefono"required>
+        
+          <label for="direccion">Direccion:</label>
+          <input type="text" id="direccion" name="direccion"[(ngModel)]="turno.paciente.direccion"required>
+        
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email"[(ngModel)]="turno.paciente.email" required>
+        
+          <label for="dni">DNI:</label>
+          <input type="text" class="form-select" id="dni" name="dni"[(ngModel)]="turno.paciente.dni" required>
+        
+        
+          <label for="tipoSangre">Tipo de Sangre</label>
+            <select class="form-select" id="tipoSangre" [(ngModel)]="turno.paciente.tipo_sangre" required>
+              <option value="" selected></option>
+              <option *ngFor="let tipo of tipoSangreOptions" [value]="tipo">{{ tipo }}</option>
+            </select>
+         
+          
+            <label for="tieneObraSocial">¿Tiene Obra Social?</label>
+            <input type="checkbox" class="form-check-input" id="tieneObraSocial" name="tieneObraSocial" [(ngModel)]="turno.paciente.tiene_OS">
+            
+          <div *ngIf= "turno.paciente.tiene_OS">
+            <label for="obraSocial">Obra Social</label>
+            <input type="text" class="form-control" id="obraSocial" name="obraSocial" [(ngModel)]="turno.paciente.obraSocial" required>
+          </div>
+
+          <div class="form-group">
+            <label for="img">Seleccionar Imagen:</label>
+            <input type="file" class="form-control" id="img" name="img"  (change)="onFileSelected($event)" accept="image/*">
+          </div>
+        
+        
+        
+            <div class="form-buttons">
+              <button type="button"    (click)="siguienteEtapa()">Siguiente</button>
+            </div>
+          </form>
+        
+          <form id="etapa2" style="display: none;">
+            <div class="form-group position-relative">
+              <label for="tipoEspecialidad">Tipo de Especialidad</label>
+              <select class="form-control" id="tipoEspecialidad" name="tipoEspecialidad" [(ngModel)]="turno.odontologo.especialidad">
+                <option value="Odontología general">Odontología general</option>
+                <option value="Odontopediatría">Odontopediatría</option>
+                <option value="Endodoncia">Endodoncia</option>
+                <option value="Ortodoncia">Ortodoncia</option>
+                <option value="Prostodoncia">Prostodoncia</option>
+              </select>
+            </div>
+          
+           
+          <label for="fecha">Fecha:</label>
+          <input type="date" id="fecha" name="fecha" [(ngModel)]="turno.fecha" required>
+
+        
+          <label for="horario">Horario:</label>
+          <input type= "time" id="horario" name="horario" [(ngModel)]="turno.horario" required>
+        
+          <label for="afeccion">Afeccion:</label>
+          <input type="text" id="afeccion" name="afeccion" [(ngModel)]="turno.afeccion" required>
+        
+         
+
+            <app-mensaje #mensajeElement [messageText]="errorMessage" [messageType]="messageType"></app-mensaje>
+        
+            <div class="form-buttons">
+              <button type="button" (click)="crearTurno()">Finalizar Turno</button>
+            </div>
+          </form>
+
+    </div>
+  
+   
+  </div>
+  

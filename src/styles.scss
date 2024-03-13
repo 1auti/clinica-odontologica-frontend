@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+/*Configuracion de mensajes de informacion*/
+.position-relative {
+    position: relative;
+  }
+  
+  .info-icon {
+    position: absolute;
+    top: 30%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .info-message {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .info-content {
+    max-width: 200px;
+    color:black
+  }
+  
+  .position-relative:hover .info-message {
+    display: block;
+  }

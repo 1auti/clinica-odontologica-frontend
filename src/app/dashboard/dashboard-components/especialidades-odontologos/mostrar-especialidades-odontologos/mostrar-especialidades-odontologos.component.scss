@@ -1,0 +1,44 @@
+/* especialidades-odontologo.component.css */
+.especialidades-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.especialidad-card {
+  margin-top: 15px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #61dafb; /* Azul claro */
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  background-color: #f3f3f3; /* Gris claro */
+}
+
+
+
+
+.texto-especialidad h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.texto-especialidad p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.button {
+  background-color: #61dafb;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.button:hover {
+  background-color: #61dafb;
+}

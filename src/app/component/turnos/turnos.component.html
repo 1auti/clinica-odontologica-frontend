@@ -1,0 +1,38 @@
+<!-- turnos-paciente.component.html -->
+<h2 class="turno-titulo">Turnos</h2>
+<div class="turnos-container-scroll">
+    <div class="turnos-container">
+      <h3>{{paciente.nombre}} {{paciente.apellido}}</h3>
+
+      <div *ngIf="turnos.length > 0; else noTurnos">
+        <div class="turno-item" *ngFor="let turno of turnos">
+          <div class="turno-info">
+            <p><strong>Fecha:</strong> {{ turno.fecha| date: 'yyyy/mm/dd' }}</p>
+            <p><strong>Horario:</strong> {{ turno.horario }}</p>
+            <p><strong>Afeccion:</strong> {{ turno.afeccion  }}</p>
+            <p><strong>Odontólogo:</strong> {{ turno.odontologo.nombre }} {{turno.odontologo.apellido}}</p>
+            <p><strong>Especialidad:</strong>{{turno.odontologo.especialidad}}</p>
+      
+            <!-- Otros detalles del turno que desees mostrar -->
+          </div>
+        </div>
+      </div>
+  
+      <ng-template #noTurnos>
+        <p>No hay turnos disponibles.</p>
+      </ng-template>
+
+  
+
+    </div>
+  </div>
+
+  <!---
+  <button class="btn-primary" 
+  style="margin: 30px;"
+  (click)="volverPacientes()"
+  *ngIf= " rol !== 'USER'"
+  >
+    Volver a Pacientes
+  </button> -->
+  

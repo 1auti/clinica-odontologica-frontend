@@ -1,0 +1,35 @@
+/* servicios.component.css */
+
+.servicios-container {
+  padding: 20px;
+}
+
+.servicios-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.servicio-item {
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #61dafb; /* Azul claro */
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  background-color: #f3f3f3; /* Gris claro */
+}
+
+.servicio-imagen {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.servicio-titulo {
+  color: #343a40; /* Gris oscuro */
+}
+
+.servicio-descripcion {
+  color: #6c757d; /* Gris medio */
+}

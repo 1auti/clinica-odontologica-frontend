@@ -1,0 +1,31 @@
+<!-- alta-diagnostico.component.html -->
+
+<div class="container">
+  <h2>Alta de Diagnóstico</h2>
+
+  <form #diagnosticoForm="ngForm"(ngSubmit)="submitForm()" >
+    <!-- Diagnóstico -->
+    <div class="form-group">
+      <label for="diagnostico">Diagnóstico:</label>
+      <textarea id="diagnostico" name="diagnostico" class="form-control" [(ngModel)]="diagnostico" required></textarea>
+    </div>
+
+    <!-- Odontólogo -->
+    <div class="form-group">
+      <label for="odontologo">Odontólogo:</label>
+      <select id="odontologo" name="odontologo" class="form-control" [(ngModel)]="nuevoDiagnostico.odontologo" required>
+        <option *ngFor="let odontologo of odontologos" [value]="odontologo.id">
+          {{ odontologo.nombre }} - {{ odontologo.especialidad }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Fecha de Tratamiento -->
+    <div class="form-group">
+      <label for="fechaTratamiento">Fecha de Tratamiento:</label>
+      <input type="date" id="fechaTratamiento" name="fechaTratamiento" class="form-control" [(ngModel)]="fechaTratamiento" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px;" >Guardar Diagnóstico</button>
+  </form>
+</div>

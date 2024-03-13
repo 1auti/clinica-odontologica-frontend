@@ -1,0 +1,88 @@
+<!-- lista-pacientes.component.html -->
+<div class="container mt-4  scrollable-table">
+    <h2>Lista de Pacientes</h2>
+  
+    <div class="mb-3">
+      <label for="tipoSangre">Filtrar por Tipo de Sangre:</label>
+      <select class="form-select" id="tipoSangre" [(ngModel)]="selectedTipoSangre" (change)="filtrarPorTipoSangre(tipoSangreOptions)">
+        <option value="" selected>Todos</option>
+        <option *ngFor="let tipo of tipoSangreOptions" [value]="tipo">{{ tipo }}</option>
+      </select>
+    </div>
+  
+   
+  
+    <button class="btn btn-primary boton separar" (click)="filtrarMenores()">Filtrar Menores</button>
+    <button class="btn btn-primary boton separar" (click)="filtrarMayores()">Filtrar Mayores</button>
+    <button class="btn btn-primary boton separar" (click)="filtrarConObraSocial(true)">Con Obra Social</button>
+    <button class="btn btn-primary boton separar" (click)="filtrarConObraSocial(false)">Sin Obra Social</button>
+    <button class="btn btn-primary boton separar" (click)="obtenerPacientes()">Quitar filtro</button>
+    
+  
+    <div class="mb-3">
+      <label for="obraSocial">Filtrar por Obra Social:</label>
+      <input type="text" class="form-control" id="TipoObraSocial" [(ngModel)]="TipoObraSocial" placeholder="Ingrese la obra social...">
+      <button class="btn btn-primary" (click)="filtrarPorObraSocial(TipoObraSocial)" style="margin-top: 10px;">Filtrar</button>
+    </div>
+
+    <div class="mb-3">
+      <label for="obraSocial">Buscar por Email:</label>
+      <input type="text" class="form-control" id="email" [(ngModel)]="email" placeholder="Ingrese el email...">
+      <button class="btn btn-primary" (click)="buscarPacientePorEmail(email)" style="margin-top: 10px;">Buscar</button>
+      <button class="btn btn-primary " (click)="reiniciar()" style="margin-top: 10px; margin-left: 5px;" >Traer pacientes</button>
+
+    </div>
+
+
+    <table class="table"  *ngIf="bandera === false">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Acciones</th>
+          <!-- Agrega más columnas según tus necesidades -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paciente of pacientes">
+          <td>{{ paciente.id }}</td>
+          <td>{{ paciente.nombre }}</td>
+          <td>{{ paciente.apellido }}</td>
+          <td>{{paciente.email}}</td>
+          <td>
+            <button class="btn btn-primary" (click)="showDetalles(paciente.id)">Detalles</button>
+          </td>
+          <!-- Agrega más columnas según tus necesidades -->
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div *ngIf="bandera === true">
+      <app-mensaje #mensajeElement [messageText]="errorMessage" [messageType]="messageType"></app-mensaje>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ paciente.id }}</td>
+            <td>{{ paciente.nombre }}</td>
+            <td>{{ paciente.apellido }}</td>
+            <td>{{ paciente.email }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="showDetalles(paciente.id)">Detalles</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  

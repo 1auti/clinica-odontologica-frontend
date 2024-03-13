@@ -1,0 +1,80 @@
+<div class="container mt-4 scrollable-table ">
+  <h2>Lista de Odontólogos</h2>
+
+  <!-- Botones de filtro -->
+  <div class="mb-3">
+    <label for="especialidad">Filtrar por Especialidad:</label>
+    <select class="form-select" id="especialidad" [(ngModel)]="filtroEspecialidad">
+      <option value="" selected>Todos</option>
+      <option *ngFor="let especialidad of especialidades" [value]="especialidad">{{ especialidad }}</option>
+    </select>
+    <button class="btn btn-primary" (click)="aplicarFiltroEspecialidad()" style="margin-top: 10px;">Filtrar</button>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="obraSocial">Buscar por Email:</label>
+    <input type="text" class="form-control" id="email" [(ngModel)]="email" placeholder="Ingrese el email...">
+    <button class="btn btn-primary" (click)="buscarOdontologo(email)" style="margin-top: 10px;">Buscar</button>
+    <button class="btn btn-primary " (click)="reiniciarFiltros()" style="margin-top: 10px; margin-left: 5px;" >Traer Odontologos</button>
+
+  </div>
+
+
+
+
+
+  <!-- Botón para reiniciar filtros -->
+  <div class="mb-3">
+    <button class="btn btn-primary" (click)="reiniciarFiltros()">Reiniciar Filtros</button>
+  </div>
+
+  <!-- Lista de odontólogos -->
+  <table class="table" *ngIf="bandera == false">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Especialidad</th>
+        <th>Acciones</th>
+        <!-- Agrega más columnas según tus necesidades -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let odontologo of odontologosFiltrados">
+        <td>{{ odontologo.id }}</td>
+        <td>{{ odontologo.nombre }}</td>
+        <td>{{ odontologo.apellido }}</td>
+        <td>{{ odontologo.especialidad }}</td>
+        <td> <button class="btn btn-primary" (click)= "showDetalles(odontologo.id)">Detalles</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="bandera === true">
+    <app-mensaje #mensajeElement [messageText]="errorMessage" [messageType]="messageType"></app-mensaje>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Especialidad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ odontologo.id }}</td>
+          <td>{{ odontologo.nombre }}</td>
+          <td>{{ odontologo.apellido }}</td>
+          <td>{{ odontologo.especialidad }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="showDetalles(odontologo.id)">Detalles</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+</div>

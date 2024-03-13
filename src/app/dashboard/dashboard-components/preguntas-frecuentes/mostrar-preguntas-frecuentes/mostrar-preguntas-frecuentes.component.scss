@@ -1,0 +1,94 @@
+
+  
+  /* Estilo de la sección para crear una nueva pregunta */
+  .crearPregunta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra */
+    margin-bottom: 20px;
+  }
+  
+  .crearPregunta button {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+  }
+  
+  .crearPregunta textarea {
+    width: 100%;
+    height: 80px;
+    margin-top: 10px;
+    resize: none;
+  }
+  
+  
+  
+  /* Estilo de cada pregunta y respuesta */
+  .pregunta-respuesta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea a la izquierda */
+    margin-bottom: 40px;
+  }
+  
+  /* Estilo de la pregunta */
+  .pregunta h3 {
+    background-color: #f8f9fa;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+    text-align: left; /* Alinea a la izquierda */
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+
+ 
+  
+  /* Estilo del botón para eliminar pregunta */
+  .respuesta button {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .responderPregunta textarea{
+    width: 500px;
+    height: 100px;
+    margin-top: 10px;
+    resize: none;
+    margin-bottom: 10px;
+
+  }
+  
+  /* Estilo del enlace para responder una pregunta */
+  .responderPregunta p {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 10px;
+  }
+  
+  .responderPregunta p:hover {
+    color: #0056b3;
+  }
+  
+  /* Estilo del formulario de respuesta */
+  .responderPregunta form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea a la izquierda */
+    margin-top: 20px;
+  }
+  
